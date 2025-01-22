@@ -16,18 +16,17 @@ const App = () => {
           backgroundSize: 'cover', 
           backgroundPosition: 'center', 
           position: 'relative', 
-          zIndex: '-1', 
         }}
         className="bg-black bg-opacity-50"
       >
         <About />
         <Menu />
-        <RestaurantSpace/>
+        <RestaurantSpace />
       </div>
       <Contact />
       <Footer />
     </main>
-  )
+  );
 }
 
 export default App;

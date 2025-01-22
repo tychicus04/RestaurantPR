@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DishCard from "./DishCard";
-import { MENU } from "../constants";
-import { useState, useEffect } from "react";
+import { MENU, settings } from "../constants";
+import Slider from "react-slick";
 
 const Menu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,13 +36,22 @@ const Menu = () => {
   }, [isModalOpen]);
 
   return (
-    <section className="text-white py-10 bg-black bg-opacity-70" id="menu">
+    <section className="text-white py-10 px-6 bg-black bg-opacity-70" id="menu">
       <h1 className="text-3xl font-bold text-center mb-10">{MENU.header}</h1>
       <p className="text-center mb-8">{MENU.content}</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-10">
+      {/* Image Gallery */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-10 sm:hidden">
         {MENU.dishes.map((dish, index) => (
           <DishCard key={index} dish={dish} />
         ))}
+      </div>
+      {/* Image Gallery (Mobile) */}
+      <div className="flex flex-col gap-4 lg:hidden">
+        <Slider {...settings}>
+          {MENU.dishes.map((dish, index) => (
+            <DishCard key={index} dish={dish} />
+          ))}
+        </Slider>
       </div>
       <div className="text-center mt-10">
         <button

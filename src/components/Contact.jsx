@@ -4,7 +4,7 @@ import { CONTACT } from "../constants";
 const Contact = () => {
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat text-white py-10"
+      className="relative bg-cover bg-center bg-no-repeat text-white py-10 px-6"
       style={{ backgroundImage: "url('../src/assets/about.jpg')" }}
       id="contact"
     >

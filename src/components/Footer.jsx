@@ -8,7 +8,6 @@ const Footer = () => {
       backgroundSize: 'cover', 
       backgroundPosition: 'center', 
       position: 'relative', 
-      zIndex: '-1', 
     }}
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
