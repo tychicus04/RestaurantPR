@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import DishCard from "./DishCard";
 import { MENU, settings } from "../constants";
 import Slider from "react-slick";
@@ -14,11 +14,11 @@ const Menu = () => {
     setIsModalOpen(false);
   };
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = useCallback((event) => {
     if (event.key === "Escape") {
       closeModal();
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -40,7 +40,7 @@ const Menu = () => {
       <h1 className="text-3xl font-bold text-center mb-10">{MENU.header}</h1>
       <p className="text-center mb-8">{MENU.content}</p>
       {/* Image Gallery */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-10 sm:hidden">
+      <div className="lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-10 hidden">
         {MENU.dishes.map((dish, index) => (
           <DishCard key={index} dish={dish} />
         ))}

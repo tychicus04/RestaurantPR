@@ -5,6 +5,7 @@ import About from "./components/About";
 import RestaurantSpace from "./components/RestaurantSpace";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import bgImage from '../src/assets/bg.jpg';
 
 const App = () => {
   return (
@@ -12,10 +13,11 @@ const App = () => {
       <Navbar />
       <div 
         style={{ 
-          backgroundImage: "url('../src/assets/bg.jpg')", 
+          backgroundImage: `url(${bgImage})`,
           backgroundSize: 'cover', 
           backgroundPosition: 'center', 
           position: 'relative', 
+          zIndex:0
         }}
         className="bg-black bg-opacity-50"
       >

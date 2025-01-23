@@ -12,7 +12,7 @@ export const ABOUT = {
   header: "NHÀ HÀNG GIANG LAN",
   content:
             "Nằm sát ven sông Hồng, Nhà hàng Giang Lan là một thương hiệu ẩm thực nổi tiếng tại Hà Nội \n" +
-            "luôn thu hút thực khách từ Nam ra Bắc. Không gian rộng đẹp, không gian yên tĩnh thư giãn tạo mọi điều \N" +
+            "luôn thu hút thực khách từ Nam ra Bắc. Không gian rộng đẹp, không gian yên tĩnh thư giãn tạo mọi điều \n" +
             "kiện để tổ chức các bữa tiệc hay những buổi họp mặt. Đến hoàn toàn dễ dàng và đậm chất ẩm thực địa \n" +
             "phương, đây là địa điểm lý tưởng để tổ chức những buổi tiệc dành cho người lớn.",
   images: [

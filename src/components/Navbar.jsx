@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
 import { LINKS } from "../constants";
 import { FaTimes, FaBars } from "react-icons/fa";
@@ -23,11 +23,25 @@ const Navbar = () => {
         setIsMobileMenuOpen(false);
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+          const navbar = document.querySelector('nav');
+          if (window.scrollY > 50) {
+            navbar.classList.add('bg-black', 'shadow-lg');
+          } else {
+            navbar.classList.remove('bg-black', 'shadow-lg');
+          }
+        };
+      
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
     return (
         <nav className="fixed top-4 z-50 w-full flex flex-col items-center justify-center">
             <div className="flex w-full items-center justify-between p-4 bg-black bg-opacity-50 backdrop-blur-lg lg:my-2 lg:w-[50rem] lg:rounded-full lg:shadow-lg lg:px-6">
                 <img src={logo} alt="logo" className="w-20 h-auto" />
-                <div className="hidden space-x-6 lg:flex">
+                <div className="hidden lg:flex space-x-6">
                     {LINKS.map((link, index) => (
                         <a key={index} 
                             href={`#${link.targetId}`} 
@@ -37,11 +51,13 @@ const Navbar = () => {
                         </a>
                     ))}
                 </div>
-                <div className="lg:hidden">
-                    <button onClick={toggleMobileMenu} className="text-white">
-                        {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-                    </button>
-                </div>
+                <button 
+                    onClick={toggleMobileMenu} 
+                    className="lg:hidden text-white"
+                    aria-label="Toggle Menu"
+                >
+                    {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+                </button>
             </div>
             {isMobileMenuOpen && (
                 <div className="w-full bg-black bg-opacity-50 p-4 backdrop-blur-lg lg:hidden">

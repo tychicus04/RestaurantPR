@@ -9,6 +9,7 @@ const DishCard = ({index, dish}) => {
               src={dish.image}
               alt={dish.name}
               className="w-full h-40 object-cover rounded-md mb-5"
+              loading="lazy"
             />
             <h2 className="text-xl font-semibold">{dish.name}</h2>
             {/* <p className="text-yellow-400 mt-2">{dish.price}</p> */}
